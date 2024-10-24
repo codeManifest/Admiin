@@ -2,6 +2,9 @@
 import React from 'react'
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
+import { motion } from 'framer-motion';
+
+
 
 // icons
 import DashboardIcon from '@mui/icons-material/Dashboard';
@@ -18,12 +21,14 @@ import FolderOpenIcon from '@mui/icons-material/FolderOpen';
 import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
 
 
+
 // dinamic code for comp
 const DashboardU=dynamic(()=> import('../Components/ui/Dashboard') )
 const Task=dynamic(()=> import('../Components/ui/Task') )
 const Activities=dynamic(()=> import('../Components/ui/Activities') )
 const Message=dynamic(()=> import('../Components/ui/Message') )
 const Calander=dynamic(()=> import('../Components/ui/Calander') )
+const User=dynamic(()=> import('../Components/ui/User') )
 
 export default function Dashboard() {
   const [activeComponent, setActiveComponent] = useState('Dashboard');
@@ -37,6 +42,8 @@ export default function Dashboard() {
       return <Activities/>;
       case'Message':
       return <Message/>;
+      case'User':
+      return <User/>;
       default:
       return <DashboardU/>
         
@@ -50,25 +57,27 @@ export default function Dashboard() {
   }
 
   let spanclass=[
-    'flex items-center gap-3 font-medium cursor-pointer hover:text-blue-600 transition-all'
+    'flex items-center gap-3 font-medium cursor-pointer hover:text-blue-600  '
     ]
   return (
     <>
-    <div className='h-screen w-full flex mt-9' >
+    
 
-    <div className='h-screen w-[200px] bg-slate-10 shadow-2xl flex flex-col gap-8 px-4 py-12 justify-center overflow-hidden  ' >
-      <span className={`${spanclass} ${activeComponent === 'Dashboard' ? 'text-blue-600' : ''} `}  onClick={() => setActiveComponent('Dashboard')} ><DashboardIcon/> Dashboard </span>
-      <span className={`${spanclass} ${activeComponent === 'Task' ? 'text-blue-600' : ''}  `}  onClick={() => setActiveComponent('Task')} ><SplitscreenIcon/> Task </span>
-      <span className={`${spanclass} ${activeComponent === 'User' ? 'text-blue-600' : ''}  `}  onClick={() => setActiveComponent('User')} ><PersonIcon/> User  </span>
-      <span className={`${spanclass} ${activeComponent === 'Message' ? 'text-blue-600' : ''}  `}  onClick={() => setActiveComponent('Message')} ><MailOutlineIcon/> Message </span>
-      <span className={`${spanclass} ${activeComponent === 'Activities' ? 'text-blue-600' : ''}  `}  onClick={() => setActiveComponent('Activities')}><AccessibilityIcon/> Activites </span>
-      <span className={`${spanclass} ${activeComponent === 'Calander' ? 'text-blue-600' : ''}  `}  onClick={() => setActiveComponent('Calander')} ><CalendarMonthIcon/> Calander </span>
-      <span className={`${spanclass} ${activeComponent === 'Post' ? 'text-blue-600' : ''}  `}  onClick={() => setActiveComponent('Post')} ><SendOutlinedIcon/> Post </span>
-      <span className={`${spanclass} ${activeComponent === 'Ticket' ? 'text-blue-600' : ''}  `}  onClick={() => setActiveComponent('Ticket')} ><ConfirmationNumberIcon/> Ticket </span>
-      <span className={`${spanclass} ${activeComponent === 'Reports' ? 'text-blue-600' : ''}  `}  onClick={() => setActiveComponent('Reports')} ><AssessmentIcon/> Reports </span>
-      <span className={`${spanclass} ${activeComponent === 'Jobs' ? 'text-blue-600' : ''}  `}  onClick={() => setActiveComponent('Jobs')} ><WorkIcon/> Jobs </span>
-      <span className={`${spanclass} ${activeComponent === 'Documents' ? 'text-blue-600' : ''}  `}  onClick={() => setActiveComponent('Documents')} ><FolderOpenIcon/> Documents </span>
-      <span className={`${spanclass} ${activeComponent === 'Security' ? 'text-blue-600' : ''}  `}  onClick={() => setActiveComponent('Security')} ><VerifiedUserIcon/> Security </span>
+    <div className=' w-full flex mt-9  	 ' >
+
+    <div  className=' w-[200px]  min-h-screen bg-slate-10 shadow-2xl flex flex-col gap-8 px-4 py-12 justify-center ' >
+      <motion.span whileHover={{ scale: 1.1 }}onHoverStart={e => {}}onHoverEnd={e => {}} className={`${spanclass} ${activeComponent === 'Dashboard' ? 'text-blue-600' : ''} `}  onClick={() => setActiveComponent('Dashboard')} ><DashboardIcon/> Dashboard </motion.span>
+      <motion.span whileHover={{ scale: 1.1 }}onHoverStart={e => {}}onHoverEnd={e => {}} className={`${spanclass} ${activeComponent === 'Task' ? 'text-blue-600' : ''}  `}  onClick={() => setActiveComponent('Task')} ><SplitscreenIcon/> Task </motion.span>
+      <motion.span whileHover={{ scale: 1.1 }}onHoverStart={e => {}}onHoverEnd={e => {}} className={`${spanclass} ${activeComponent === 'User' ? 'text-blue-600' : ''}  `}  onClick={() => setActiveComponent('User')} ><PersonIcon/> Students  </motion.span>
+      <motion.span whileHover={{ scale: 1.1 }}onHoverStart={e => {}}onHoverEnd={e => {}} className={`${spanclass} ${activeComponent === 'Message' ? 'text-blue-600' : ''}  `}  onClick={() => setActiveComponent('Message')} ><MailOutlineIcon/> Message </motion.span>
+      <motion.span whileHover={{ scale: 1.1 }}onHoverStart={e => {}}onHoverEnd={e => {}} className={`${spanclass} ${activeComponent === 'Activities' ? 'text-blue-600' : ''}  `}  onClick={() => setActiveComponent('Activities')}><AccessibilityIcon/> Activites </motion.span>
+      <motion.span whileHover={{ scale: 1.1 }}onHoverStart={e => {}}onHoverEnd={e => {}} className={`${spanclass} ${activeComponent === 'Calander' ? 'text-blue-600' : ''}  `}  onClick={() => setActiveComponent('Calander')} ><CalendarMonthIcon/> Calander </motion.span>
+      <motion.span whileHover={{ scale: 1.1 }}onHoverStart={e => {}}onHoverEnd={e => {}} className={`${spanclass} ${activeComponent === 'Post' ? 'text-blue-600' : ''}  `}  onClick={() => setActiveComponent('Post')} ><SendOutlinedIcon/> Post </motion.span>
+      <motion.span whileHover={{ scale: 1.1 }}onHoverStart={e => {}}onHoverEnd={e => {}} className={`${spanclass} ${activeComponent === 'Ticket' ? 'text-blue-600' : ''}  `}  onClick={() => setActiveComponent('Ticket')} ><ConfirmationNumberIcon/> Ticket </motion.span>
+      <motion.span whileHover={{ scale: 1.1 }}onHoverStart={e => {}}onHoverEnd={e => {}} className={`${spanclass} ${activeComponent === 'Reports' ? 'text-blue-600' : ''}  `}  onClick={() => setActiveComponent('Reports')} ><AssessmentIcon/> Reports </motion.span>
+      <motion.span whileHover={{ scale: 1.1 }}onHoverStart={e => {}}onHoverEnd={e => {}} className={`${spanclass} ${activeComponent === 'Jobs' ? 'text-blue-600' : ''}  `}  onClick={() => setActiveComponent('Jobs')} ><WorkIcon/> Jobs </motion.span>
+      <motion.span whileHover={{ scale: 1.1 }}onHoverStart={e => {}}onHoverEnd={e => {}} className={`${spanclass} ${activeComponent === 'Documents' ? 'text-blue-600' : ''}  `}  onClick={() => setActiveComponent('Documents')} ><FolderOpenIcon/> Documents </motion.span>
+      <motion.span whileHover={{ scale: 1.1 }}onHoverStart={e => {}}onHoverEnd={e => {}} className={`${spanclass} ${activeComponent === 'Security' ? 'text-blue-600' : ''}  `}  onClick={() => setActiveComponent('Security')} ><VerifiedUserIcon/> Security </motion.span>
 
       
 
@@ -76,8 +85,13 @@ export default function Dashboard() {
         
 
     </div>
-    <div className='dynamic px-8 w-[90vw] ' >    {Rendercomp()}    </div>
+    <motion.div  className='dynamic px-8 w-[100vw]  ' >    {Rendercomp()}    </motion.div>
     </div>
+    
+      
+      
+      
+    
     </>
   )
 }
